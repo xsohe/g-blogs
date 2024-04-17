@@ -1,0 +1,126 @@
+body {
+    font-family: "Space Grotesk", sans-serif;
+}
+.text-justify {
+    text-align: justify;
+}
+.btn-cream {
+    background-color: #fffdf0;
+}
+.btn {
+    box-shadow: 4px 4px;
+    border-color: #030712;
+}
+.btn:hover {
+    box-shadow: 2px 2px;
+    border-color: #030712;
+}
+.btn-search {
+    border-color: rgb(156, 163, 175);
+    box-shadow: none;
+}
+.search-input {
+    /* box-shadow: 4px 4px; */
+    border-color: rgb(156, 163, 175);
+}
+.form-control:focus {
+    border-color: rgb(156, 163, 175);
+    box-shadow: none;
+}
+.active {
+    text-decoration: underline;
+}
+.navbar-light {
+    background-color: #ffffff;
+}
+.switch-mode {
+    cursor: pointer;
+}
+.dark-mode {
+    background-color: #030712;
+    color: #eeeeee;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+p.small.text-muted {
+    color: rgb(156, 163, 175) !important; /* Warna teks standar Bootstrap */
+    font-size: 14px; /* Ukuran font untuk teks informasi paginate */
+}
+.pagination {
+    box-shadow: 6px 6px;
+    border-color: #030712;
+    border-radius: 6px;
+}
+.pagination a {
+    color: #030712; /* Warna biru standar Bootstrap */
+    border-color: #030712; /* Warna border standar Bootstrap */
+}
+.pagination a:hover {
+    color: #030712; /* Warna biru gelap standar Bootstrap */
+    border-color: #030712; /* Warna border biru gelap standar Bootstrap */
+}
+.pagination .page-item.active .page-link {
+    background-color: #030712; /* Warna latar belakang standar Bootstrap */
+    border-color: #030712; /* Warna border standar Bootstrap */
+    color: #fff; /* Warna teks standar Bootstrap */
+}
+/* .line-header {
+    color: rgb(156, 163, 175);
+} */
+/* Dark Mode CSS */
+@media (prefers-color-scheme: dark) {
+    body.dark-mode {
+        background-color: #030712;
+        color: #eeeeee;
+    }
+    body.dark-mode .navbar-light {
+        background-color: #030712;
+        color: #eeeeee;
+    }
+    body.dark-mode .navbar-light .navbar-nav .nav-link {
+        color: #eeeeee;
+    }
+    body.dark-mode .navbar-light .navbar-nav .nav-link:hover,
+    body.dark-mode .navbar-light .navbar-nav .nav-link:focus {
+        color: #cccccc;
+    }
+    body.dark-mode .navbar-light .navbar-brand {
+        color: #eeeeee;
+    }
+    body.dark-mode .navbar-dark .navbar-toggler-icon {
+        color: #eeeeee;
+        filter: invert(1);
+    }
+    body.dark-mode .card {
+        background-color: #09111b;
+        border-color: rgb(156, 163, 175);
+        color: #eeeeee;
+    }
+    body.dark-mode .btn {
+        background-color: #09111b;
+        border-color: rgb(156, 163, 175);
+        color: #eeeeee;
+    }
+    body.dark-mode .form-control {
+        background-color: #09111b;
+        border-color: rgb(156, 163, 175);
+        color: #eeeeee;
+    }
+    body.dark-mode .list-group-item {
+        background-color: #09111b;
+        border-color: rgb(156, 163, 175);
+        color: #eeeeee;
+    }
+    body.dark-mode .pagination .page-link {
+        background-color: #09111b;
+        border-color: rgb(156, 163, 175);
+        color: #eeeeee;
+    }
+    body.dark-mode .pagination .page-item.active .page-link {
+        background-color: #eeeeee;
+        border-color: #eeeeee;
+        color: #030712;
+    }
+}

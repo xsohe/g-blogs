@@ -1,0 +1,11 @@
+a .active:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    background-color: black;
+}
+
+.navbar {
+    backdrop-filter: blur(10px);
+}
