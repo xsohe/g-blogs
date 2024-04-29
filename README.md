@@ -1,6 +1,6 @@
 ### How to Setup & Configuration
 
-1. Clone this repo :
+1. Clone this repo:
    ```sh
    git clone https://github.com/xsohe/g-blogs.git
    ```
@@ -9,17 +9,20 @@
    composer install
    ```
 4. Setup DB on your DBMS 
-    _copy .env.exampamle with name file .env_
+    copy .env.example with name file .env
     ```sh
       cp .env.example .env
     ```
-5. ```sh
+5. Run Database Migrations: After setting up your database configuration in the .env file, you need to run database migrations to create the necessary database tables. Use the following command:
+   ```sh
    php artisan migrate
    ```
-6. ```sh
+6. Clear Application Cache: To ensure your Laravel application runs smoothly, it's recommended to clear the application cache, especially after making changes to configuration files. Execute the following command:
+   ```sh
    php artisan optimaze:clear
    ```
-8. ```sh
+7. Start the Development Server: Finally, you can start the development server using the following command:
+   ```sh
    php artisan serve
    ```
 
