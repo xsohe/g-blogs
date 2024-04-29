@@ -66,6 +66,10 @@ p.small.text-muted {
     border-color: #030712; /* Warna border standar Bootstrap */
     color: #fff; /* Warna teks standar Bootstrap */
 }
+.image > img {
+    width: 100%;
+    height: auto;
+}
 /* .line-header {
     color: rgb(156, 163, 175);
 } */

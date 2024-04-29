@@ -45,6 +45,9 @@
                                     @endif
                                 </td>
                                 <td>
+                                    <a href="/dashboard/users/{{ $user->username }}" class="badge text-dark me-2">
+                                        <span data-feather="eye" class="align-text-bottom"></span>
+                                    </a>
                                     <a href="/dashboard/users/{{ $user->username }}/edit" class="badge text-dark me-2">
                                         <span data-feather="edit" class="align-text-bottom"></span>
                                     </a>

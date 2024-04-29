@@ -1,4 +1,9 @@
 @extends('dashboard.layouts.main')
+<style>
+    /* .body-content > img {
+        width: 100% !important;
+    } */
+</style>
 @section('contents')
 <div class="container my-5">
     <header class="text-center mt-3">
@@ -31,7 +36,7 @@
         </div>
         <div class="col-lg-9">
             <div class="card mb-3">
-                <div class="card-body">
+                <div class="card-body body-content">
                   <p>
                     {!! $blog->body !!}
                   </p>

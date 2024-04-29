@@ -46,8 +46,18 @@ class User extends Authenticatable
         ];
     }
 
+    // ketika user di hapus blog yg terkait denga user tersebut jg terhapus.
+    protected static function boot() {
+        parent::boot();
+        static::deleting(fn ($user) => $user->blogs()->delete());
+    }
+
     public function blogs() {
         return $this->hasMany(Blog::class);
+    }
+
+    public function projects() {
+        return $this->hasMany(Projects::class);
     }
 
     public function getRouteKeyName()

@@ -10,7 +10,7 @@
     <div class="row mb-4">
         <div class="col-lg-8">
             <form action="/dashboard/projects" method="POST" enctype="multipart/form-data">
-                @csrf
+                @csrf 
                 <div class="mb-3">
                   <label for="name" class="form-label @error('name') is-invalid @enderror">Name</label>
                   <input type="name" class="form-control" id="name" name="name" value="{{ old('name') }}">
@@ -25,7 +25,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                   <label for="tag" class="form-label">Stack</label>
                   <select class="form-select" name="stack_id">
                       @foreach ($stacks as $stack)
@@ -36,7 +36,21 @@
                       @endif
                       @endforeach
                   </select>
+                </div> --}}
+                
+                <div class="mb-3">
+                    <label for="stack" class="form-label d-block pp">Stack</label>
+                    <select class="js-example-basic-multiple" name="stack_id[]" multiple="multiple" style="width: 100%">
+                        @foreach ($stacks as $stack)
+                            @if (old('tag_id') == $stack->id)
+                                <option value="{{ $stack->id }}" selected>{{ $stack->name }}</option>
+                            @else
+                                <option value="{{ $stack->id }}">{{ $stack->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div>
+
                 <div class="mb-3">
                     <label for="desc" class="form-label @error('desc') is-invalid @enderror">Description</label>
                     <textarea id="editor" name="desc" id="desc">{{ old('desc') }}</textarea>
@@ -67,6 +81,8 @@
 
 <script src="https://cdn.ckeditor.com/ckeditor5/41.3.0/classic/ckeditor.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <script>
   const name = document.querySelector('#name');
   const slug = document.querySelector('#slug');
@@ -96,5 +112,9 @@
       imagePreview.src = oFREvent.target.result;
     }
   }
+
+  $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+  });
 </script>
 @endsection

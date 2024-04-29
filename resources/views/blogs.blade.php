@@ -26,8 +26,12 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   @foreach ($tags as $tag)
-                    <li class="list-group-item"><a href="/blogs?tag={{ $tag->slug }}" class="text-decoration-none">{{ $tag->name }}</a></li>
-                  @endforeach
+                    <li class="list-group-item">
+                        <a href="/blogs?tag={{ $tag->slug }}" class="text-decoration-none">
+                            {{ $tag->name }} ({{ $tag->blogs->count() }})
+                        </a>
+                    </li>
+                @endforeach
                 </ul>
             </div>
         </div>

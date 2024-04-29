@@ -9,7 +9,7 @@
         <div class="col-lg-6">
             @if ($tags->count())
             @foreach ($tags as $tag)
-                <a href="/blogs/{{ $tag->slug }}" class="badge bg-body-secondary text-muted text-uppercase text-decoration-none p-2 my-2 mx-2">{{ $tag->name }}</a>
+                <a href="/blogs/{{ $tag->slug }}" class="badge bg-body-secondary text-muted text-uppercase text-decoration-none p-2 my-2 mx-2">{{ $tag->name }} ({{ $tag->blogs->count() }})</a>
             @endforeach
             @else
                 <span class="fw-bold fs-4">Tags Not Found!</span>

@@ -47,7 +47,7 @@
                                     <a href="/dashboard/projects/{{ $project->slug }}/edit" class="badge text-dark">
                                         <span data-feather="edit" class="align-text-bottom"></span>
                                     </a>
-                                    <form action="/dashboard/projects/{{ $project->id }}" method="POST" class="d-inline">
+                                    <form action="/dashboard/projects/{{ $project->slug }}" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
                                         <button class="badge text-dark border-0 bg-transparent" onclick="return confirm('Are you sure?')">

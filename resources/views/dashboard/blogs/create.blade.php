@@ -1,5 +1,4 @@
 @extends('dashboard.layouts.main')
-
 @section('contents')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom mt-4">
     <div>
@@ -52,9 +51,8 @@
 </div>
 
 {{-- <script src="{{ asset('assets/vendor/ckeditor5/build/ckeditor.js') }}"></script> --}}
-<script src="https://cdn.ckeditor.com/ckeditor5/41.3.0/classic/ckeditor.js"></script>
-
-
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/41.3.0/classic/ckeditor.js"></script> --}}
+<script src="{{ asset('js/ckeditor.js') }}"></script>
 
 {{-- <script src="https://cdn.ckeditor.com/ckeditor5/41.3.0/decoupled-document/ckeditor.js"></script> --}}
 <script>
@@ -72,6 +70,20 @@
             uploadUrl:
             "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
         },
+        codeBlock: {
+            languages: [
+                { language: 'css', label: 'CSS' },
+                { language: 'html', label: 'HTML' },
+                { language: 'java', label: 'Java' },
+	            { language: 'javascript', label: 'JavaScript' },
+                { language: 'php', label: 'PHP' },
+                { language: 'python', label: 'Python' },
+                { language: 'typescript', label: 'TypeScript' },
+                { language: 'c', label: 'C' },
+                { language: 'cs', label: 'C#' },
+                { language: 'cpp', label: 'C++' },
+            ]
+        }
     }).catch((error) => {
         console.error(error);
     });

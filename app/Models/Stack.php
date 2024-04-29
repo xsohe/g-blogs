@@ -14,6 +14,6 @@ class Stack extends Model
     ];
 
     public function project() {
-        return $this->belongsTo(Projects::class);
+        return $this->belongsToMany(Projects::class, 'prject_stack');
     }
 }

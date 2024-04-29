@@ -137,3 +137,7 @@ body {
 .ck-editor__editable_inline {
     height: 20rem;
 }
+.image > img {
+    width: 100%;
+    height: auto;
+}

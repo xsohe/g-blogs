@@ -1,5 +1,9 @@
 @extends('layouts.main')
-
+<style>
+    pre {
+        border-radius: 0.5rem;
+    }
+</style>
 @section('contents')
 <div class="container col-lg-8 my-5">
     <header class="text-center mt-3">
@@ -13,8 +17,12 @@
                 <div class="card-body d-flex align-items-center">
                     <img src="https://source.unsplash.com/50x50?profile" alt="this is profile" class="img-fluid rounded-circle me-3">
                     <div>
-                    <small class="fw-bold d-block">{{ $blog->user->name }}</small>
-                        <small class="fw-light d-block text-secondary">Students</small>
+                    <small class="fw-bold d-block">{{ $blog->user->name }}
+                        @if($blog->user->is_admin) 
+                            <i class="bi bi-patch-check-fill"></i>
+                        @endif
+                    </small>
+                    <small class="fw-light d-block text-secondary">Students</small>
                     </div>
                 </div>
             </div>
@@ -32,11 +40,8 @@
         </div>
         <div class="col-lg-9">
             <div class="card mb-3">
-                <div class="card-body">
-                  <h1 class="h3 fw-bolder mt-2"><a href="" class="text-decoration-none">Introduction!</a></h1>
-                  <p>
+                <div class="card-body content-body">
                     {!! $blog->body !!}
-                  </p>
                 </div>
             </div>
         </div>

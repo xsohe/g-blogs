@@ -19,7 +19,7 @@ class Projects extends Model
     }
 
     public function stack() {
-        return $this->belongsTo(Stack::class, 'stack_id');
+        return $this->belongsToMany(Stack::class, 'project_stack');
     }
 
     public function getRouteKeyName()

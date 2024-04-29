@@ -11,6 +11,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "@ckeditor/ckeditor5-build-classic": "^41.3.0"
+        "@ckeditor/ckeditor5-build-classic": "^41.3.0",
+        "@ckeditor/ckeditor5-table": "^41.3.1"
     }
 }

@@ -18,7 +18,7 @@ class Tag extends Model
         return 'slug';
     }
 
-    public function blog() {
+    public function blogs() {
         return $this->hasMany(Blog::class);
     }
 

@@ -6,7 +6,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto fw-bold">
+        <ul class="navbar-nav ms-auto fw-bold align-items-center">
           <li class="nav-item me-3">
             <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" aria-current="page" href="/about">About</a>
           </li>

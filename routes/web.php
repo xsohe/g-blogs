@@ -54,5 +54,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/projects/checkSlug', [DashboardProjectController::class, 'checkSlug']);
     Route::get('/dashboard/tags/checkSlug', [DashboardTagController::class, 'checkSlug'])->middleware('admin');
     Route::resource('/dashboard/tags', DashboardTagController::class)->except('show')->middleware('admin');
-    Route::resource('/dashboard/users', DashboardUserController::class)->except('show')->middleware('admin');
+    Route::resource('/dashboard/users', DashboardUserController::class)->middleware('admin');
 });

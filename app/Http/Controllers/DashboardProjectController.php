@@ -6,6 +6,8 @@ use App\Models\Projects;
 use App\Models\Stack;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class DashboardProjectController extends Controller
 {
@@ -16,7 +18,7 @@ class DashboardProjectController extends Controller
     {
         return view('dashboard.projects.index', [
             'title' => 'My Projects',
-            'projects'=> Projects::where('user_id', auth()->user()->id)->get()
+            'projects'=> Projects::where('user_id', auth()->user()->id)->latest()->get()
         ]);
     }
 
@@ -39,7 +41,7 @@ class DashboardProjectController extends Controller
         $validatedData = $request->validate([
             'name' => ['required', 'min:3', 'max:255'],
             'slug' => ['required', 'unique:projects'],
-            'stack_id' => ['required'],
+            'stack_id' => ['required', 'array'],
             'desc' => ['required'],
             'image' => ['required', 'file', 'max:1024'],
             'source' => ['required'],
@@ -49,9 +51,12 @@ class DashboardProjectController extends Controller
             $validatedData['image'] = $request->file('image')->store('projects-img');
         }
 
+        // dd($request->all());
         $validatedData['user_id'] = auth()->user()->id;
-        // dd($validatedData);
-        Projects::create($validatedData);
+        $stackId = implode(',', $request->stack_id);
+        $projects = Projects::create($validatedData);
+        $projects->stack()->sync($stackId);
+
         return redirect('/dashboard/projects')->with('success', 'Project has been added!');
     }
 
@@ -70,24 +75,46 @@ class DashboardProjectController extends Controller
     {
         return view('dashboard.projects.edit', [
             'title' => 'Dashboar edit project',
-            'project' => $project
+            'project' => $project,
+            'stacks' => Stack::latest()->get()
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Projects $project)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:255'],
+            'slug' => [!$project ? Rule::unique('projects') : Rule::unique('projects')->ignore($project->id)],
+            'stack_id' => ['required', 'array'],
+            'desc' => ['required'],
+            'image' => ['required', 'file', 'max:1024'],
+            'source' => ['required'],
+        ]);
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($project->image);
+            }
+            $validatedData['image'] = $request->file('image')->store('projects-img');
+        }
+
+        Projects::where('id', $project->id)->update($validatedData);
+        return redirect('/dashboard/projects')->with('success', 'Project has been updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Projects $project)
     {
-        //
+        if($project->image) {
+            Storage::delete($project->image);
+        }
+        Projects::destroy($project->id);
+        return redirect('/dashboard/projects')->with('success', 'Project has been deleted!');
     }
 
     public function checkSlug(Request $request) {

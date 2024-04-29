@@ -53,7 +53,9 @@
 </div>
 
 {{-- <script src="{{ asset('assets/vendor/ckeditor5/build/ckeditor.js') }}"></script> --}}
-<script src="https://cdn.ckeditor.com/ckeditor5/41.3.0/classic/ckeditor.js"></script>
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/41.3.0/classic/ckeditor.js"></script> --}}
+<script src="{{ asset('js/ckeditor.js') }}"></script>
+
 <script> 
     const title = document.querySelector('#title');
     const slug = document.querySelector('#slug');
