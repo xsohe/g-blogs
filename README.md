@@ -1,31 +1,15 @@
 ### How to Setup & Configuration
 
-1. Clone this repo : 
-  ```sh
-   git clone https://github.com/xsohe/g-blogs.git
-  ```
-2. Install some package with 
-  ```sh
-   composer install
-  ```
-
+1. Clone this repo : ```sh git clone https://github.com/xsohe/g-blogs.git ```
+2. Install some package with ```sh composer install ```
 3. Setup DB on your DBMS 
 _copy .env.exampamle with name file .env_
 ```sh
   cp .env.example .env
 ```
-
-4. ```sh
-   php artisan migrate
-  ```
-
-5. ```sh
-   php artisan optimaze:clear
-  ```
-  
-6. ```sh
-   php artisan serve
-  ```
+4. ```sh php artisan migrate ```
+5. ```sh php artisan optimaze:clear ```
+6. ```sh php artisan serve ```
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
