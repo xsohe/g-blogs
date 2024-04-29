@@ -15,7 +15,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('about' , [
+        'title' => 'About'
+    ]);
 });
 
 Route::get('/about', function() {
